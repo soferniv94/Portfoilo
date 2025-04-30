@@ -4,81 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blox's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Orbitron', sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      overflow: hidden;
-      color: #fff;
+      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+      color: #00f7ff;
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px;
-      position: relative;
+      padding: 50px;
+      animation: bgPulse 15s infinite alternate ease-in-out;
     }
 
-    .particles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.imgur.com/hz8Xwxy.png') repeat;
-      background-size: contain;
-      opacity: 0.05;
-      z-index: 1;
-      animation: moveParticles 60s linear infinite;
-    }
-
-    @keyframes moveParticles {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
+    @keyframes bgPulse {
+      0% { background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); }
+      100% { background: radial-gradient(circle at bottom right, #000428, #004e92, #1e3c72); }
     }
 
     .portfolio {
-      position: relative;
-      z-index: 2;
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid rgba(0, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid #00f7ff44;
       border-radius: 25px;
-      padding: 40px;
-      max-width: 800px;
-      width: 100%;
       backdrop-filter: blur(25px);
-      box-shadow: 0 0 20px rgba(0,255,255,0.2), 0 0 50px rgba(0,255,255,0.05);
-      animation: fadeIn 1.2s ease-in-out;
+      padding: 40px;
+      max-width: 850px;
+      width: 100%;
+      box-shadow: 0 0 40px #00f7ff44, 0 0 80px #00f7ff22;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
-      font-size: 3em;
-      color: #00e0ff;
+      font-size: 3.5em;
+      color: #00f7ff;
       text-align: center;
       margin-bottom: 20px;
-      text-shadow: 0 0 25px #00e0ff88;
+      text-shadow: 0 0 20px #00f7ffaa, 0 0 40px #00f7ff88;
     }
 
     p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       margin-bottom: 20px;
-      line-height: 1.6;
+      line-height: 1.7;
       text-align: center;
     }
 
     section {
-      margin-bottom: 40px;
+      margin: 40px 0;
     }
 
     .section-title {
-      font-size: 1.6em;
-      border-left: 5px solid #00e0ff;
-      padding-left: 10px;
-      margin-bottom: 15px;
-      text-shadow: 0 0 10px #00e0ff66;
+      font-size: 1.8em;
+      color: #ffffff;
+      border-left: 5px solid #00f7ff;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00f7ff99;
     }
 
     ul {
@@ -87,65 +80,83 @@
     }
 
     li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      transition: 0.3s;
+      padding: 12px 0;
+      font-size: 1.2em;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
     }
 
     li:hover {
-      color: #00ffff;
+      transform: scale(1.03);
       text-shadow: 0 0 10px #00ffffaa;
-      transform: translateX(5px);
     }
 
     a {
-      color: #00e0ff;
+      color: #00f7ff;
       text-decoration: none;
-      transition: 0.3s;
+      font-weight: bold;
+      transition: color 0.3s, text-shadow 0.3s;
     }
 
     a:hover {
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff99;
+      color: #0ff;
+      text-shadow: 0 0 15px #0ff;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 2.4em;
+      }
+
+      .section-title {
+        font-size: 1.4em;
+      }
+
+      p {
+        font-size: 1em;
+      }
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      .portfolio { padding: 20px; }
+    .glow-border {
+      border: 2px solid #00f7ff;
+      box-shadow: 0 0 15px #00f7ff88;
+      padding: 15px;
+      border-radius: 15px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="particles"></div>
   <div class="portfolio">
-    <h1>🌟 Blox Programming</h1>
-    <p>Hi! I'm Blox, a programmer from Israel. I made Blox Script, love Lua, and fight malware with kindness 💙.</p>
+    <h1>🔥 Blox Programming</h1>
+    <p>Hi! I'm <strong>Blox</strong>, a young dev from Israel. I built Blox Script, love Lua, and fight malware with kindness 💙.</p>
 
     <section>
       <div class="section-title">💼 Projects</div>
-      <ul>
-        <li>🧠 Blox Script – A cool new programming language!</li>
-        <li>🚀 Blox Launcher – Travel through Roblox time (Scrapped)</li>
-        <li>🛡️ My Antivirus Project – Stopping malware with love (Scrapped)</li>
-      </ul>
+      <div class="glow-border">
+        <ul>
+          <li>🧠 <strong>Blox Script</strong> – A cool new programming language!</li>
+          <li>🚀 <strong>Blox Launcher</strong> – Travel through Roblox time <em>(Scrapped)</em></li>
+          <li>🛡️ <strong>My Antivirus Project</strong> – Stopping malware with love <em>(Scrapped)</em></li>
+        </ul>
+      </div>
     </section>
 
     <section>
       <div class="section-title">👦 About Me</div>
-      <p>I love Roblox, programming, judo, and helping people. I'm not just a dev — I'm a master in code form 😎.</p>
+      <div class="glow-border">
+        <p>I love Roblox, programming, judo, helping people, and making the world a safer place online. I'm not just a developer — I'm a friendly coder warrior 😎.</p>
+      </div>
     </section>
 
     <section>
       <div class="section-title">📬 Contact</div>
-      <ul>
-        <li>YouTube: <a href="https://youtube.com/@BloxProgrammingRBLX" target="_blank">Blox Programming</a></li>
-        <li>Roblox: <a href="https://roblox.com/users/3441887434" target="_blank">@StudiosGame9</a></li>
-      </ul>
+      <div class="glow-border">
+        <ul>
+          <li>YouTube: <a href="https://youtube.com/@BloxProgrammingRBLX" target="_blank">Blox Programming</a></li>
+          <li>Roblox: <a href="https://roblox.com/users/3441887434" target="_blank">@StudiosGame9</a></li>
+        </ul>
+      </div>
     </section>
   </div>
 </body>
