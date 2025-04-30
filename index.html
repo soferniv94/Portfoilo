@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niv's Portfolio</title>
+  <style>
+    /* Reset + smooth font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .portfolio {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #00e0ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #00e0ff77;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 1.6em;
+      border-left: 5px solid #00e0ff;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    a {
+      color: #00e0ff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff99;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="portfolio">
+    <h1>Niv Sofer Mizrahi</h1>
+    <p>Hi! I'm a 10-year-old programming genius from Israel. I made Blox Script, love Lua, and fight malware with kindness 💙.</p>
+
+    <section>
+      <div class="section-title">💼 Projects</div>
+      <ul>
+        <li>🧠 Blox Script – A cool new programming language!</li>
+        <li>🚀 Blox Launcher – Travel through Roblox time</li>
+        <li>🛡️ My Antivirus Project – Stopping malware with love</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="section-title">👦 About Me</div>
+      <p>I love Roblox, programming, judo, and helping people. I'm not just a dev — I'm a superhero in code form 😎.</p>
+    </section>
+
+    <section>
+      <div class="section-title">📬 Contact</div>
+      <ul>
+        <li>Email: <a href="mailto:niv@example.com">niv@example.com</a></li>
+        <li>YouTube: <a href="https://youtube.com/@bloxprogramming" target="_blank">Blox Programming</a></li>
+        <li>Roblox: <a href="https://roblox.com/users/studiosgame9" target="_blank">@StudiosGame9</a></li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
