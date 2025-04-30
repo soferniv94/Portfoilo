@@ -1,82 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blox Programming Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blox's Portfolio</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
-      color: #00f7ff;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 50px 20px;
-      animation: bgPulse 15s infinite alternate ease-in-out;
-    }
-
-    @keyframes bgPulse {
-      0% { background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364); }
-      100% { background: radial-gradient(circle at bottom right, #000428, #004e92, #1e3c72); }
-    }
-
-    .portfolio {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid #00f7ff44;
-      border-radius: 25px;
-      backdrop-filter: blur(25px);
       padding: 40px;
-      max-width: 950px;
-      width: 100%;
-      box-shadow: 0 0 40px #00f7ff44, 0 0 80px #00f7ff22;
-      animation: slideIn 1.2s ease-out;
     }
 
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
+    nav {
+      margin-bottom: 30px;
     }
 
-    h1 {
-      font-size: 3.5em;
-      color: #00f7ff;
-      text-align: center;
-      margin-bottom: 20px;
-      text-shadow: 0 0 20px #00f7ffaa, 0 0 40px #00f7ff88;
+    nav a {
+      color: #00e0ff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: 0.3s;
     }
 
-    .search-bar {
-      margin: 20px auto 40px auto;
-      display: flex;
-      justify-content: center;
+    nav a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff99;
     }
 
-    .search-bar input {
-      padding: 10px 20px;
-      font-size: 1em;
-      border-radius: 10px;
+    .search-container {
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
       border: none;
-      width: 100%;
-      max-width: 400px;
+      border-radius: 10px;
       outline: none;
     }
 
+    .portfolio {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+      animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #00e0ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #00e0ff77;
+    }
+
+    p, li {
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+
+    section {
+      display: none;
+      margin-top: 20px;
+    }
+
     .section-title {
-      font-size: 1.8em;
-      color: #ffffff;
-      border-left: 5px solid #00f7ff;
-      padding-left: 15px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 10px #00f7ff99;
+      font-size: 1.6em;
+      border-left: 5px solid #00e0ff;
+      padding-left: 10px;
+      margin-bottom: 10px;
     }
 
     ul {
@@ -85,85 +93,95 @@
     }
 
     li {
-      padding: 12px 0;
-      font-size: 1.2em;
+      padding: 8px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    li:hover {
-      transform: scale(1.03);
-      text-shadow: 0 0 10px #00ffffaa;
     }
 
     a {
-      color: #00f7ff;
+      color: #00e0ff;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s, text-shadow 0.3s;
+      transition: 0.3s;
     }
 
     a:hover {
-      color: #0ff;
-      text-shadow: 0 0 15px #0ff;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff99;
     }
 
-    .glow-border {
-      border: 2px solid #00f7ff;
-      box-shadow: 0 0 15px #00f7ff88;
-      padding: 15px;
-      border-radius: 15px;
-      margin-top: 20px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    nav {
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    nav a {
-      margin: 0 15px;
-      font-size: 1.1em;
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2em;
+      }
     }
   </style>
+  <script>
+    function showPage(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(s => s.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function searchInfo() {
+      const value = document.getElementById('searchInput').value.toLowerCase();
+      const sections = document.querySelectorAll('section');
+      let found = false;
+      sections.forEach(section => {
+        if (section.innerText.toLowerCase().includes(value)) {
+          showPage(section.id);
+          found = true;
+        }
+      });
+      if (!found) alert("No info found.");
+    }
+
+    window.onload = () => showPage('home');
+  </script>
 </head>
 <body>
-  <div class="portfolio">
-    <h1>🔥 Blox Programming</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <nav>
+    <a href="#" onclick="showPage('home')">🏠 Home</a>
+    <a href="#" onclick="showPage('projects')">💼 Projects</a>
+    <a href="#" onclick="showPage('about')">👦 About</a>
+    <a href="#" onclick="showPage('contact')">📬 Contact</a>
+  </nav>
 
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search info about Blox (no age info)..." oninput="filterContent()">
-    </div>
-
-    <section>
-      <div class="section-title">📌 Quick Bio</div>
-      <div class="glow-border">
-        <ul id="infoList">
-          <li>🚀 Creator of Blox Script</li>
-          <li>💻 Roblox developer and programmer</li>
-          <li>🧠 Loves Lua, Python, HTML, and PHP</li>
-          <li>🎮 Made Problocks Studio and Blox Launcher</li>
-          <li>🛡️ Fights malware and promotes safety online</li>
-          <li>🎓 Learning and building every day</li>
-        </ul>
-      </div>
-    </section>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search info about me...">
+    <button onclick="searchInfo()">🔍</button>
   </div>
 
-  <script>
-    function filterContent() {
-      const input = document.getElementById("search").value.toLowerCase();
-      const items = document.querySelectorAll("#infoList li");
-      items.forEach(li => {
-        li.style.display = li.textContent.toLowerCase().includes(input) ? "list-item" : "none";
-      });
-    }
-  </script>
+  <div class="portfolio">
+    <section id="home">
+      <h1>Blox Programming</h1>
+      <p>Hi! I'm Blox, a programmer from Israel. I made Blox Script, love Lua, and fight malware with kindness 💙.</p>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">💼 Projects</div>
+      <ul>
+        <li>🧠 <strong>Blox Script</strong> – A cool new programming language!</li>
+        <li>🚀 <strong>Blox Launcher</strong> – Travel through Roblox time (Scrapped)</li>
+        <li>🛡️ <strong>My Antivirus Project</strong> – Stopping malware with love (Scrapped)</li>
+      </ul>
+    </section>
+
+    <section id="about">
+      <div class="section-title">👦 About Me</div>
+      <p>I love Roblox, programming, judo, ping pong, and helping people. I'm not just a dev — I'm a master in code form 😎.</p>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">📬 Contact</div>
+      <ul>
+        <li>YouTube: <a href="https://youtube.com/@BloxProgrammingRBLX" target="_blank">Blox Programming</a></li>
+        <li>Roblox: <a href="https://roblox.com/users/3441887434" target="_blank">@StudiosGame9</a></li>
+      </ul>
+    </section>
+  </div>
 </body>
 </html>
