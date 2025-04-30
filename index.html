@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blox's Portfolio</title>
+  <title>Blox Programming Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -18,9 +18,9 @@
       color: #00f7ff;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 50px;
+      padding: 50px 20px;
       animation: bgPulse 15s infinite alternate ease-in-out;
     }
 
@@ -35,7 +35,7 @@
       border-radius: 25px;
       backdrop-filter: blur(25px);
       padding: 40px;
-      max-width: 850px;
+      max-width: 950px;
       width: 100%;
       box-shadow: 0 0 40px #00f7ff44, 0 0 80px #00f7ff22;
       animation: slideIn 1.2s ease-out;
@@ -54,15 +54,20 @@
       text-shadow: 0 0 20px #00f7ffaa, 0 0 40px #00f7ff88;
     }
 
-    p {
-      font-size: 1.3em;
-      margin-bottom: 20px;
-      line-height: 1.7;
-      text-align: center;
+    .search-bar {
+      margin: 20px auto 40px auto;
+      display: flex;
+      justify-content: center;
     }
 
-    section {
-      margin: 40px 0;
+    .search-bar input {
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      max-width: 400px;
+      outline: none;
     }
 
     .section-title {
@@ -103,20 +108,6 @@
       text-shadow: 0 0 15px #0ff;
     }
 
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 2.4em;
-      }
-
-      .section-title {
-        font-size: 1.4em;
-      }
-
-      p {
-        font-size: 1em;
-      }
-    }
-
     .glow-border {
       border: 2px solid #00f7ff;
       box-shadow: 0 0 15px #00f7ff88;
@@ -124,40 +115,55 @@
       border-radius: 15px;
       margin-top: 20px;
     }
+
+    nav {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      font-size: 1.1em;
+    }
   </style>
 </head>
 <body>
   <div class="portfolio">
     <h1>🔥 Blox Programming</h1>
-    <p>Hello! I'm <strong>Blox</strong>, a passionate developer from Israel. I built Blox Script, love Lua, and fight malware with kindness 💙.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search info about Blox (no age info)..." oninput="filterContent()">
+    </div>
 
     <section>
-      <div class="section-title">💼 Projects</div>
+      <div class="section-title">📌 Quick Bio</div>
       <div class="glow-border">
-        <ul>
-          <li>🧠 <strong>Blox Script</strong> – A cool new programming language!</li>
-          <li>🚀 <strong>Blox Launcher</strong> – Travel through Roblox time <em>(Scrapped)</em></li>
-          <li>🛡️ <strong>My Antivirus Project</strong> – Stopping malware with love <em>(Scrapped)</em></li>
-        </ul>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-title">👤 About Me</div>
-      <div class="glow-border">
-        <p>I love Roblox, programming, judo, helping people, and making the internet a safer place. I'm not just a developer — I'm a friendly coder warrior 😎.</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-title">📬 Contact</div>
-      <div class="glow-border">
-        <ul>
-          <li>YouTube: <a href="https://youtube.com/@BloxProgrammingRBLX" target="_blank">Blox Programming</a></li>
-          <li>Roblox: <a href="https://roblox.com/users/3441887434" target="_blank">@StudiosGame9</a></li>
+        <ul id="infoList">
+          <li>🚀 Creator of Blox Script</li>
+          <li>💻 Roblox developer and programmer</li>
+          <li>🧠 Loves Lua, Python, HTML, and PHP</li>
+          <li>🎮 Made Problocks Studio and Blox Launcher</li>
+          <li>🛡️ Fights malware and promotes safety online</li>
+          <li>🎓 Learning and building every day</li>
         </ul>
       </div>
     </section>
   </div>
+
+  <script>
+    function filterContent() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const items = document.querySelectorAll("#infoList li");
+      items.forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(input) ? "list-item" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
