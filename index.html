@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blox Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blox's Portfolio</title>
   <style>
+    /* Reset + Smooth Base Styling */
     * {
       margin: 0;
       padding: 0;
@@ -13,11 +14,10 @@
     }
 
     body {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: #121212;
       color: #fff;
-      min-height: 100vh;
-      padding-top: 60px;
       overflow-x: hidden;
+      transition: background 0.4s, color 0.4s;
     }
 
     header {
@@ -25,118 +25,182 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 999;
+      padding: 15px 30px;
+      z-index: 1000;
     }
 
-    .nav-links a {
-      margin: 0 15px;
-      color: #00e0ff;
-      text-decoration: none;
+    .logo {
+      font-size: 1.5em;
       font-weight: bold;
-      transition: color 0.3s;
+      color: #00e0ff;
     }
 
-    .nav-links a:hover {
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ccc;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
       color: #00ffff;
-      text-shadow: 0 0 8px #00ffff99;
     }
 
-    .content {
-      padding: 120px 40px 40px; /* Added padding-top to prevent overlap */
+    .container {
+      padding-top: 100px;
+      padding: 40px;
       max-width: 1000px;
-      margin: 0 auto;
+      margin: auto;
     }
 
-    .intro {
-      text-align: center;
-      margin-bottom: 60px;
+    section {
+      display: none;
+      animation: fadeIn 0.6s ease-in-out forwards;
     }
 
-    .intro h1 {
-      font-size: 3.5em;
+    section.active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 3em;
       color: #00e0ff;
       text-shadow: 0 0 15px #00e0ff77;
     }
 
-    .intro p {
-      font-size: 1.3em;
-      margin-top: 15px;
+    p {
+      font-size: 1.2em;
+      margin: 15px 0;
+      line-height: 1.6;
     }
 
     .section-title {
-      font-size: 2em;
+      font-size: 1.6em;
+      margin: 30px 0 15px;
       border-left: 5px solid #00e0ff;
       padding-left: 10px;
-      margin: 40px 0 20px;
-    }
-
-    .section-content ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .section-content li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .search-box {
-      margin-top: 40px;
-      text-align: center;
+      margin: 20px 0;
     }
 
-    .search-box input {
+    input[type="text"] {
+      width: 100%;
       padding: 10px;
-      width: 60%;
-      max-width: 500px;
       border-radius: 10px;
       border: none;
-      outline: none;
+      font-size: 1em;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      opacity: 0.7;
+    .project-list li {
+      margin: 10px 0;
+      cursor: pointer;
+      color: #00e0ff;
+    }
+
+    .project-list li:hover {
+      text-decoration: underline;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      color: #fff;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    .toggle-darkmode {
+      cursor: pointer;
+      padding: 5px 15px;
+      background: #00e0ff;
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin: 0 8px;
+      }
+      h1 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
 <body>
+  <canvas id="bgCanvas"></canvas>
   <header>
-    <div class="logo">Blox Portfolio</div>
-    <nav class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <div class="logo">Blox</div>
+    <nav>
+      <a href="#" onclick="navigate('home')">Home</a>
+      <a href="#" onclick="navigate('projects')">Projects</a>
+      <a href="#" onclick="navigate('about')">About</a>
+      <a href="#" onclick="navigate('contact')">Contact</a>
     </nav>
+    <button class="toggle-darkmode" onclick="toggleDarkMode()">Toggle Mode</button>
   </header>
 
-  <div class="content">
-    <section class="intro" id="home">
-      <h1>Welcome to Blox's World</h1>
-      <p>Passionate programmer, Lua lover, and malware fighter. Explore my universe below!</p>
+  <div class="container">
+    <section id="home" class="active">
+      <h1 id="typewriter"></h1>
+      <p>Welcome to my awesome portfolio. Built with HTML, CSS, and pure power. 🚀</p>
     </section>
 
     <section id="projects">
       <div class="section-title">💼 Projects</div>
-      <div class="section-content">
-        <ul>
-          <li>🧠 Blox Script – A new programming language!</li>
-          <li>🚀 Blox Launcher – Travel through Roblox time</li>
-          <li>🛡️ Antivirus Project – Stopping malware creatively</li>
-        </ul>
-      </div>
+      <ul class="project-list">
+        <li onclick="showModal('Blox Script is a custom programming language built from scratch with love and Lua!')">🧠 Blox Script</li>
+        <li onclick="showModal('The Blox Launcher allowed Roblox version time travel! Scrapped, but still awesome.')">🚀 Blox Launcher</li>
+        <li onclick="showModal('Antivirus project aimed to destroy malware with kindness. Scrapped.')">🛡️ My Antivirus</li>
+      </ul>
     </section>
 
     <section id="about">
-      <div class="section-title">👦 About Me</div>
-      <p>I love Roblox, programming, judo, and helping people. I'm not just a dev — I'm a master in code form 😎.</p>
+      <div class="section-title">🔍 Search Info</div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Type something like 'Roblox', 'Lua', etc..." oninput="searchInfo()">
+      </div>
+      <div id="searchResults">
+        <p>I love Roblox, Lua, programming, judo, kindness, and helping others 💙</p>
+      </div>
     </section>
 
     <section id="contact">
@@ -146,14 +210,130 @@
         <li>Roblox: <a href="https://roblox.com/users/3441887434" target="_blank">@StudiosGame9</a></li>
       </ul>
     </section>
+  </div>
 
-    <div class="search-box">
-      <input type="text" placeholder="Search something about me...">
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <p id="modalText"></p>
     </div>
   </div>
 
-  <footer>
-    &copy; 2025 Blox. All rights reserved.
-  </footer>
+  <script>
+    const sections = document.querySelectorAll("section");
+    function navigate(id) {
+      sections.forEach(s => s.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    function showModal(text) {
+      document.getElementById("modalText").textContent = text;
+      document.getElementById("projectModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("projectModal").style.display = "none";
+    }
+
+    function searchInfo() {
+      const value = document.getElementById("searchInput").value.toLowerCase();
+      const facts = [
+        "I love Roblox.",
+        "I made Blox Script.",
+        "I use Lua.",
+        "I am kind.",
+        "I made a launcher.",
+        "I fight malware.",
+        "I love judo.",
+        "I created Problocks."
+      ];
+      const matches = facts.filter(f => f.toLowerCase().includes(value));
+      document.getElementById("searchResults").innerHTML = matches.map(m => `<p>${m}</p>`).join('') || '<p>No match found.</p>';
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("light");
+      if (document.body.classList.contains("light")) {
+        document.body.style.background = "#f5f5f5";
+        document.body.style.color = "#111";
+      } else {
+        document.body.style.background = "#121212";
+        document.body.style.color = "#fff";
+      }
+    }
+
+    const words = ["Hi, I'm Blox.", "I love Lua.", "I fight malware.", "Welcome!"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    const typewriter = document.getElementById("typewriter");
+
+    function type() {
+      if (charIndex < words[wordIndex].length) {
+        typewriter.textContent += words[wordIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typewriter.textContent = words[wordIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+
+    // Particles
+    const canvas = document.getElementById("bgCanvas");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createParticles() {
+      for (let i = 0; i < 100; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          speedX: (Math.random() - 0.5) * 0.5,
+          speedY: (Math.random() - 0.5) * 0.5
+        });
+      }
+    }
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#00e0ff';
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+      });
+      requestAnimationFrame(drawParticles);
+    }
+
+    createParticles();
+    drawParticles();
+  </script>
 </body>
 </html>
