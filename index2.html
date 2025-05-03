@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blox - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #222;
+    }
+
+    header {
+      background: white;
+      padding: 20px 40px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #007acc;
+    }
+
+    .hero {
+      padding: 80px 20px;
+      text-align: center;
+      background: #ffffff;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #007acc;
+    }
+
+    .projects li {
+      margin-bottom: 10px;
+      padding-left: 15px;
+      border-left: 3px solid #007acc;
+    }
+
+    .about p, .contact p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 14px;
+      color: #888;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    form button {
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #005f99;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Niv</h1>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Hello, I'm Blox</h2>
+  <p>A passionate developer who loves building cool things</p>
+</div>
+
+<section id="projects">
+  <h3 class="section-title">Projects</h3>
+  <ul class="projects">
+    <li><strong>Blox Script:</strong> My own custom programming language.</li>
+    <li><strong>Problocks:</strong> A creative 3D Roblox-style world.</li>
+    <li><strong>Blox Launcher:</strong> Launch different Roblox versions easily.</li>
+  </ul>
+</section>
+
+<section id="about">
+  <h3 class="section-title">About Me</h3>
+  <p>Hi! I'm Blox, a programmer from Israel. I enjoy coding in Lua, HTML, Python, and PHP. I'm also the creator of Blox Script and Problocks. My goal is to make helpful, fun software and learn more every day.</p>
+</section>
+
+<section id="contact">
+  <h3 class="section-title">Contact</h3>
+  <p>If you'd like to reach out, just send a message below!</p>
+  <form>
+    <input type="text" placeholder="Your name" required />
+    <input type="email" placeholder="Your email" required />
+    <textarea rows="5" placeholder="Your message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Niv. All rights reserved.
+</footer>
+
+</body>
+</html>
