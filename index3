@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blox - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007acc;
+      --bg: #f9f9f9;
+      --text: #1f1f1f;
+      --accent: #005f99;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: var(--primary);
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: linear-gradient(135deg, #ffffff, #e6f2fa);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #444;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 960px;
+      margin: auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      margin-top: 30px;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .section-title {
+      font-size: 30px;
+      color: var(--primary);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    ul.projects {
+      list-style: none;
+    }
+
+    ul.projects li {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    ul.projects li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .about p, .contact p {
+      font-size: 17px;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    form button {
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header, .hero, section {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        font-size: 32px;
+      }
+
+      nav a {
+        margin-left: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Blox</h1>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Hi, I'm Blox</h2>
+  <p>A passionate developer building creative experiences.</p>
+</div>
+
+<section id="projects">
+  <h3 class="section-title">Projects</h3>
+  <ul class="projects">
+    <li><strong>Blox Script:</strong> My own custom programming language.</li>
+    <li><strong>Problocks:</strong> A creative 3D Roblox-style world.</li>
+    <li><strong>Blox Launcher:</strong> Launch different Roblox versions easily.</li>
+  </ul>
+</section>
+
+<section id="about">
+  <h3 class="section-title">About Me</h3>
+  <p>I'm a developer from Israel who loves Lua, HTML, Python, and PHP. I built my own language called Blox Script, created Problocks, and I'm always experimenting with new ideas and tools.</p>
+</section>
+
+<section id="contact">
+  <h3 class="section-title">Contact</h3>
+  <p>Want to reach out? Fill the form below!</p>
+  <form>
+    <input type="text" placeholder="Your name" required />
+    <input type="email" placeholder="Your email" required />
+    <textarea rows="5" placeholder="Your message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 Blox Programming.
+</footer>
+
+</body>
+</html>
